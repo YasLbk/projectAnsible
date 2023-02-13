@@ -1,0 +1,10 @@
+---
+- name: alias
+  hosts: pcs
+  tasks:
+    - name: Ajout d'un alias
+      lineinfile:
+        path: /etc/skel/.bashrc
+        regexp: "^alias ll='ls -al'"
+        line: "alias ll='ls -al'"
+        state: present

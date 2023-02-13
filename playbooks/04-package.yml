@@ -1,0 +1,21 @@
+---
+- name: package_web
+  hosts: server
+  tasks:
+    - name: Ajout d'apache et mysql
+      apt:
+        name:
+          - apache2
+          - default-mysql-client
+          - default-mysql-server
+        state: present
+
+
+- name: package_tmux
+  hosts: all
+  tasks:
+    - name: Ajout de tmux
+      apt:
+        name:
+          - tmux
+        state: present

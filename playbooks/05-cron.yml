@@ -1,0 +1,20 @@
+---
+- name: package_web
+  hosts: server
+  tasks:
+    - name: Ajout de cron
+      apt:
+        name:
+          - cron
+        state: present
+
+    - name: Ajout de la suppression des fichiers dans cron
+      cron:
+        name: suppr backup files
+        weekday: "*"
+        month: "*"
+        day: "*"
+        hour: "*"
+        minute: "*/5"
+        user: root
+        job: "rm /tmp/*.bak"

@@ -1,0 +1,8 @@
+---
+- name: Motd
+  hosts: pcs
+  tasks:
+    - name: Copier Motd
+      copy:
+        src: /tp/tp-ansible/includes/motd
+        dest: /etc/motd
